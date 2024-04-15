@@ -121,5 +121,22 @@ router.put('/:mediaId',[
     
   });
 
+router.get('/:mediaId', async function(req, res){
+    try{
+        const media =await Media.findById(req.params.mediaId);
+        if(!media){
+            return res.status(484).send('la media no existe');
+        }
+        res.send(media);
+        
+    }catch(error) {
+        console.log(error);
+        req.status(500).send('ocurrio un error al conaultar las peliculas')
+
+    }
+
+
+});
+
     
 module.exports = router;
