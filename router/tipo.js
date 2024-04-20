@@ -12,7 +12,7 @@ router.post('/',[
     try {
 
         const erros = validationResult(req);
-        if(!erros.isEmpty()){
+         if(!erros.isEmpty()){
             return res.status(400).json({mensaje: erros.array()});
         }
 
